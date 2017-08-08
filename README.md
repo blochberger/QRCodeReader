@@ -9,22 +9,22 @@ This will require you to set the `NSCameraUsageDescription` in your `Info.plist`
 ```swift
 reader = QRCodeReader()
 do {
-	try	reader!.startScanning() {
-		decodedQrCode in
+  try  reader!.startScanning() {
+    decodedQrCode in
 
-		guard let decodedQrCode = decodedQrCode else {
-			return
-		}
+    guard let decodedQrCode = decodedQrCode else {
+      return
+    }
 
-		DispatchQueue.main.async {
-			UIPasteboard.general.string = decodedQrCode
-		}
+    DispatchQueue.main.async {
+      UIPasteboard.general.string = decodedQrCode
+    }
 
-		self.reader = nil
-	}
+    self.reader = nil
+  }
 } catch {
-	print("\(error.localizedDescription)")
-	reader = nil
+  print("\(error.localizedDescription)")
+  reader = nil
 }
 ```
 
