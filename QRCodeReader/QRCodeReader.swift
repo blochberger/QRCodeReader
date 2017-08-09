@@ -111,7 +111,7 @@ public class QRCodeReader: NSObject, AVCaptureMetadataOutputObjectsDelegate {
 		Aborts a current scan.
 	*/
 	public func stopScanning() {
-		session.stopRunning()
+		session?.stopRunning()
 
 		cancelButton?.removeFromSuperview()
 		cancelButton = nil
