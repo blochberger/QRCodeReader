@@ -1,6 +1,6 @@
 # QRCodeReader
 
-[![Documentation](https://blochberger.github.io/Keychain/macos/public/badge.svg)](https://blochberger.github.io/QRCodeReader)
+[![Documentation](https://blochberger.github.io/QRCodeReader/iphone/public/badge.svg)](https://blochberger.github.io/QRCodeReader)
 
 A framework for iOS which easily lets you scan QR codes.
 
