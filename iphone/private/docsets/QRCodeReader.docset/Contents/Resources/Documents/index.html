@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>QRCodeReader  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset="utf-8">
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+    
+    <script src="js/lunr.min.js" defer></script>
+    <script src="js/typeahead.jquery.js" defer></script>
+    <script src="js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+
+
+    <a title="QRCodeReader  Reference"></a>
+
+    <header class="header">
+      <p class="header-col header-col--primary">
+        <a class="header-link" href="index.html">
+          QRCodeReader Docs
+        </a>
+         (100% documented)
+      </p>
+    
+      <p class="header-col--secondary">
+        <form role="search" action="search.json">
+          <input type="text" placeholder="Search documentation" data-typeahead>
+        </form>
+      </p>
+    
+        <p class="header-col header-col--secondary">
+          <a class="header-link" href="https://github.com/blochberger/QRCodeReader">
+            <img class="header-icon" src="img/gh.png"/>
+            View on GitHub
+          </a>
+        </p>
+    
+    </header>
+
+    <p class="breadcrumbs">
+      <a class="breadcrumb" href="index.html">QRCodeReader Reference</a>
+      <img class="carat" src="img/carat.png" />
+      QRCodeReader  Reference
+    </p>
+
+    <div class="content-wrapper">
+      <nav class="navigation">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/QRCodeReader.html">QRCodeReader</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/QRCodeReader/Error.html">– Error</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+
+        <section class="section">
+          <div class="section-content">
+            
+            <h1 id='qrcodereader' class='heading'>QRCodeReader</h1>
+
+<p><a href="https://blochberger.github.io/QRCodeReader"><img src="https://blochberger.github.io/QRCodeReader/iphone/public/badge.svg" alt="Documentation"></a></p>
+
+<p>A framework for iOS which easily lets you scan QR codes.</p>
+
+<ul>
+<li>Repository: <a href="https://github.com/blochberger/QRCodeReader">https://github.com/blochberger/QRCodeReader</a></li>
+<li>Documentation: <a href="https://blochberger.github.io/QRCodeReader">https://blochberger.github.io/QRCodeReader</a>
+
+<ul>
+<li>iOS: <a href="https://blochberger.github.io/QRCodeReader/iphone/public">public</a>, <a href="https://blochberger.github.io/QRCodeReader/iphone/internal">internal</a>, <a href="https://blochberger.github.io/QRCodeReader/iphone/private">private</a></li>
+</ul></li>
+<li>Issues: <a href="https://github.com/blochberger/QRCodeReader/issues">https://github.com/blochberger/QRCodeReader/issues</a></li>
+</ul>
+
+<p><strong>Note</strong>: This will require you to set the <code>NSCameraUsageDescription</code> in your <code>Info.plist</code> or the application will crash.</p>
+<h2 id='example' class='heading'>Example</h2>
+<pre class="highlight swift"><code><span class="n">reader</span> <span class="o">=</span> <span class="kt">QRCodeReader</span><span class="p">()</span>
+<span class="k">do</span> <span class="p">{</span>
+  <span class="k">try</span>  <span class="n">reader</span><span class="o">!.</span><span class="nf">startScanning</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">decodedQrCode</span> <span class="k">in</span>
+
+    <span class="k">guard</span> <span class="k">let</span> <span class="nv">decodedQrCode</span> <span class="o">=</span> <span class="n">decodedQrCode</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="k">return</span>
+    <span class="p">}</span>
+
+    <span class="kt">DispatchQueue</span><span class="o">.</span><span class="n">main</span><span class="o">.</span><span class="n">async</span> <span class="p">{</span>
+      <span class="kt">UIPasteboard</span><span class="o">.</span><span class="n">general</span><span class="o">.</span><span class="n">string</span> <span class="o">=</span> <span class="n">decodedQrCode</span>
+    <span class="p">}</span>
+
+    <span class="k">self</span><span class="o">.</span><span class="n">reader</span> <span class="o">=</span> <span class="kc">nil</span>
+  <span class="p">}</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">{</span>
+  <span class="nf">print</span><span class="p">(</span><span class="s">"</span><span class="se">\(</span><span class="n">error</span><span class="o">.</span><span class="n">localizedDescription</span><span class="se">)</span><span class="s">"</span><span class="p">)</span>
+  <span class="n">reader</span> <span class="o">=</span> <span class="kc">nil</span>
+<span class="p">}</span>
+</code></pre>
+
+          </div>
+        </section>
+
+
+      </article>
+    </div>
+    <section class="footer">
+      <p>&copy; 2017 <a class="link" href="https://github.com/blochberger" target="_blank" rel="external">Maximilian Blochberger</a>. All rights reserved. (Last updated: 2017-08-10)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.8.3</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+    </section>
+  </body>
+</div>
+</html>
