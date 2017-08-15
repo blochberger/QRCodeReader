@@ -1,3 +1,4 @@
+import AudioToolbox
 import AVFoundation
 import UIKit
 
@@ -245,6 +246,8 @@ public class QRCodeReader: NSObject, AVCaptureMetadataOutputObjectsDelegate {
 				if feedbackOnSuccess {
 					let feedback = UIImpactFeedbackGenerator(style: .light)
 					feedback.impactOccurred()
+
+					AudioServicesPlayAlertSound(kSystemSoundID_Vibrate)
 				}
 
 				stopScanning()
