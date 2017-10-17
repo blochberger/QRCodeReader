@@ -230,7 +230,7 @@ public class QRCodeReader: NSObject, AVCaptureMetadataOutputObjectsDelegate {
 	/**
 		- see: `AVCaptureMetadataOutputObjectsDelegate`
 	*/
-	public func metadataOutput(captureOutput: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
+	public func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
 		guard !metadataObjects.isEmpty else {
 			return
 		}
