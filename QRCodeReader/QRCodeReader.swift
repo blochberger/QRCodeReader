@@ -111,7 +111,7 @@ public class QRCodeReader: NSObject, AVCaptureMetadataOutputObjectsDelegate {
 	/**
 		Aborts a current scan.
 	*/
-	public func stopScanning() {
+	@objc public func stopScanning() {
 		session?.stopRunning()
 
 		cancelButton?.removeFromSuperview()
@@ -152,14 +152,14 @@ public class QRCodeReader: NSObject, AVCaptureMetadataOutputObjectsDelegate {
 		}
 
 		var permissionsGranted = false
-		let permissionStatus = AVCaptureDevice.authorizationStatus(forMediaType: AVMediaTypeVideo)
+		let permissionStatus = AVCaptureDevice.authorizationStatus(for: .video)
 
 		switch permissionStatus {
 			case .authorized:
 				permissionsGranted = true
 			case .notDetermined:
 				let semaphore = DispatchSemaphore.init(value: 0)
-				AVCaptureDevice.requestAccess(forMediaType: AVMediaTypeVideo) {
+				AVCaptureDevice.requestAccess(for: .video) {
 					permissionsGranted = $0
 					semaphore.signal()
 				}
@@ -171,7 +171,7 @@ public class QRCodeReader: NSObject, AVCaptureMetadataOutputObjectsDelegate {
 				alert.addAction(UIAlertAction(title: "Open Settings", style: .default, handler: {
 					action in
 
-					UIApplication.shared.open(URL(string:UIApplicationOpenSettingsURLString)!)
+					UIApplication.shared.open(URL(string: UIApplicationOpenSettingsURLString)!)
 				}))
 
 				window.rootViewController?.present(alert, animated: true)
@@ -193,7 +193,7 @@ public class QRCodeReader: NSObject, AVCaptureMetadataOutputObjectsDelegate {
 			throw QRCodeReader.Error.permissionsNotGranted
 		}
 
-		guard let camera = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo) else {
+		guard let camera = AVCaptureDevice.default(for: .video) else {
 			throw QRCodeReader.Error.noCaptureDevice
 		}
 
@@ -205,11 +205,11 @@ public class QRCodeReader: NSObject, AVCaptureMetadataOutputObjectsDelegate {
 		let output = AVCaptureMetadataOutput()
 		session.addOutput(output)
 
-		output.metadataObjectTypes = [AVMetadataObjectTypeQRCode]
+		output.metadataObjectTypes = [.qr]
 		output.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
 
 		videoLayer = AVCaptureVideoPreviewLayer(session: session)
-		videoLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
+		videoLayer.videoGravity = .resizeAspectFill
 		videoLayer.frame = window.layer.bounds
 		window.layer.addSublayer(videoLayer)
 
@@ -230,14 +230,14 @@ public class QRCodeReader: NSObject, AVCaptureMetadataOutputObjectsDelegate {
 	/**
 		- see: `AVCaptureMetadataOutputObjectsDelegate`
 	*/
-	public func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [Any]!, from connection: AVCaptureConnection!) {
-		guard (metadataObjects != nil && !metadataObjects.isEmpty) else {
+	public func metadataOutput(captureOutput: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
+		guard !metadataObjects.isEmpty else {
 			return
 		}
 
-		let metadataObject = metadataObjects.first as! AVMetadataObject
+		let metadataObject = metadataObjects.first!
 
-		if metadataObject.type == AVMetadataObjectTypeQRCode {
+		if metadataObject.type == .qr {
 			let qrCode = videoLayer.transformedMetadataObject(for: metadataObject) as! AVMetadataMachineReadableCodeObject
 
 			if qrCode.stringValue != nil {
