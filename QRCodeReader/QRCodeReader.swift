@@ -171,7 +171,7 @@ public class QRCodeReader: NSObject, AVCaptureMetadataOutputObjectsDelegate {
 				alert.addAction(UIAlertAction(title: "Open Settings", style: .default, handler: {
 					action in
 
-					UIApplication.shared.open(URL(string: UIApplicationOpenSettingsURLString)!)
+					UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
 				}))
 
 				window.rootViewController?.present(alert, animated: true)
