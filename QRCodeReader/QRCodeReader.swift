@@ -4,11 +4,53 @@ import UIKit
 
 /**
 	This class can be used to conveniently read QR codes from the integrated
-	camera of the device. The first QR code detected is returned as a string and
-	the user is given indication how to enable permissions is denied or
+	camera of the device. By default the first QR code detected is returned as a
+	string. If `manualSelection` is enabled, the user can choose one of the
+	visible QR codes manually.
+	The user is given indication how to enable permissions is denied or
 	restricted.
 */
 public class QRCodeReader: NSObject, AVCaptureMetadataOutputObjectsDelegate {
+
+	/**
+		A custom `UIButton` that is used to select specific QR codes.
+	*/
+	private class ResultButton: UIButton {
+
+		/**
+			The string value fo the QR code that is selected, when the button is
+			pressed.
+		*/
+		fileprivate let qrCode: String
+
+		/**
+			Initialize a result button.
+
+			- parameters:
+				- qrCode: The value of the QR code that is selected for the
+					button.
+				- frame: The frame of the button.
+		*/
+		init(qrCode: String, frame: CGRect) {
+			self.qrCode = qrCode
+			super.init(frame: frame)
+
+			self.backgroundColor = UIColor.clear
+			self.layer.borderWidth = 3.0
+			self.layer.borderColor = UIView().tintColor.cgColor
+		}
+
+		/**
+			This will fail.
+
+			- parameters:
+				- coder: A coder.
+		*/
+		required init?(coder aDecoder: NSCoder) {
+			fatalError("init(coder:) has not been implemented")
+		}
+
+	}
 
 	/**
 		This enum indicates possible errors that can occur during capturing a QR
@@ -81,6 +123,13 @@ public class QRCodeReader: NSObject, AVCaptureMetadataOutputObjectsDelegate {
 	public var feedbackOnSuccess = true
 
 	/**
+		This enables the possibility to select one of the visible QR codes
+		manually. If this is disabled, the scan will automatically finish and
+		select the first QR code detected.
+	*/
+	public var manualSelection = false
+
+	/**
 		The function that is invoked if the scan is finished.
 	*/
 	private var callback: FinishedScan?
@@ -102,10 +151,25 @@ public class QRCodeReader: NSObject, AVCaptureMetadataOutputObjectsDelegate {
 	private var cancelButton: UIButton!
 
 	/**
+		The buttons for all QR codes currently visible.
+	*/
+	private var resultButtons: [UIButton] = []
+
+	/**
 		Upon deinitalization the scan is aborted.
 	*/
 	deinit {
 		stopScanning()
+	}
+
+	/**
+		Remove all currently visible result buttons.
+	*/
+	private func removeResultButtons() {
+		for resultButton in resultButtons {
+			resultButton.removeFromSuperview()
+		}
+		resultButtons = []
 	}
 
 	/**
@@ -114,10 +178,43 @@ public class QRCodeReader: NSObject, AVCaptureMetadataOutputObjectsDelegate {
 	@objc public func stopScanning() {
 		session?.stopRunning()
 
+		removeResultButtons()
 		cancelButton?.removeFromSuperview()
 		cancelButton = nil
 		videoLayer?.removeFromSuperlayer()
 		videoLayer = nil
+	}
+
+	/**
+		Select a result based on a UI event triggered by interacting with a
+		`ResultButton`.
+
+		- parameters:
+			- sender: The result button that triggered the event.
+	*/
+	@objc private func selectResult(_ sender: ResultButton) {
+		selectResult(qrCode: sender.qrCode)
+	}
+
+	/**
+		Select a string value of a QR code as result and finish the scan.]
+
+		- paramters:
+			- qrCode: The selected QR code.
+	*/
+	private func selectResult(qrCode: String) {
+
+		// Vibrate or blink the screen to indicate success
+		if feedbackOnSuccess {
+			let feedback = UIImpactFeedbackGenerator(style: .light)
+			feedback.impactOccurred()
+
+			AudioServicesPlayAlertSound(kSystemSoundID_Vibrate)
+		}
+
+		stopScanning()
+		callback!(qrCode)
+		callback = nil
 	}
 
 	/**
@@ -235,27 +332,30 @@ public class QRCodeReader: NSObject, AVCaptureMetadataOutputObjectsDelegate {
 			return
 		}
 
-		let metadataObject = metadataObjects.first!
+		guard let window = UIApplication.shared.keyWindow else {
+			fatalError("No key window")
+		}
 
-		if metadataObject.type == .qr {
+		removeResultButtons()
+
+		for metadataObject in metadataObjects.filter({ $0.type == .qr }) {
 			let qrCode = videoLayer.transformedMetadataObject(for: metadataObject) as! AVMetadataMachineReadableCodeObject
 
-			if qrCode.stringValue != nil {
-
-				// Vibrate or blink the screen to indicate success
-				if feedbackOnSuccess {
-					let feedback = UIImpactFeedbackGenerator(style: .light)
-					feedback.impactOccurred()
-
-					AudioServicesPlayAlertSound(kSystemSoundID_Vibrate)
-				}
-
-				stopScanning()
-
-				callback!(qrCode.stringValue)
-				
-				callback = nil
+			guard let stringValue = qrCode.stringValue else {
+				continue
 			}
+
+			guard manualSelection else {
+				selectResult(qrCode: stringValue)
+				return
+			}
+
+			let resultButton = ResultButton(qrCode: stringValue, frame: qrCode.bounds)
+			resultButton.addTarget(self, action: #selector(selectResult(_:)), for: .touchDown)
+			window.addSubview(resultButton)
+
+			resultButtons.append(resultButton)
 		}
 	}
+
 }
