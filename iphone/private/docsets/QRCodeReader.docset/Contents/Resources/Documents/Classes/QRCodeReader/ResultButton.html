@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Error Enumeration Reference</title>
+    <title>ResultButton Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../../css/highlight.css" />
     <meta charset="utf-8">
@@ -14,9 +14,9 @@
   </head>
   <body>
 
-    <a name="//apple_ref/swift/Enum/Error" class="dashAnchor"></a>
+    <a name="//apple_ref/swift/Class/ResultButton" class="dashAnchor"></a>
 
-    <a title="Error Enumeration Reference"></a>
+    <a title="ResultButton Class Reference"></a>
 
     <header class="header">
       <p class="header-col header-col--primary">
@@ -44,7 +44,7 @@
     <p class="breadcrumbs">
       <a class="breadcrumb" href="../../index.html">QRCodeReader Reference</a>
       <img class="carat" src="../../img/carat.png" />
-      Error Enumeration Reference
+      ResultButton Class Reference
     </p>
 
     <div class="content-wrapper">
@@ -57,6 +57,9 @@
                 <a class="nav-group-task-link" href="../../Classes/QRCodeReader.html">QRCodeReader</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../../Classes/QRCodeReader/ResultButton.html">– ResultButton</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../../Classes/QRCodeReader/Error.html">– Error</a>
               </li>
             </ul>
@@ -67,15 +70,14 @@
 
         <section class="section">
           <div class="section-content">
-            <h1>Error</h1>
+            <h1>ResultButton</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">Error</span> <span class="p">:</span> <span class="kt">Swift</span><span class="o">.</span><span class="kt">Error</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">private</span> <span class="kd">class</span> <span class="kt">ResultButton</span> <span class="p">:</span> <span class="kt">UIButton</span></code></pre>
 
                 </div>
               </div>
-            <p>This enum indicates possible errors that can occur during capturing a QR
-code.</p>
+            <p>A custom <code>UIButton</code> that is used to select specific QR codes.</p>
 
           </div>
         </section>
@@ -87,9 +89,9 @@ code.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:12QRCodeReaderAAC5ErrorO11noKeyWindowyA2DmF"></a>
-                    <a name="//apple_ref/swift/Element/noKeyWindow" class="dashAnchor"></a>
-                    <a class="token" href="#/s:12QRCodeReaderAAC5ErrorO11noKeyWindowyA2DmF">noKeyWindow</a>
+                    <a name="/s:12QRCodeReaderAAC12ResultButton33_B9DC3D797F478C8B92B825BD13CC6026LLC6qrCodeSSvp"></a>
+                    <a name="//apple_ref/swift/Property/qrCode" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12QRCodeReaderAAC12ResultButton33_B9DC3D797F478C8B92B825BD13CC6026LLC6qrCodeSSvp">qrCode</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -97,20 +99,20 @@ code.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>This error occurs if the NIB/XIB of the application has not loaded
-or the application is otherwise not correctly initialized.</p>
+                        <p>The string value fo the QR code that is selected, when the button is
+pressed.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">noKeyWindow</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">fileprivate</span> <span class="k">let</span> <span class="nv">qrCode</span><span class="p">:</span> <span class="kt">String</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/blochberger/QRCodeReader/blob/7e7c796928763f1292f61f6001586caa71735d32/QRCodeReader/QRCodeReader.swift#L64">Show on GitHub</a>
+                        <a href="https://github.com/blochberger/QRCodeReader/blob/7e7c796928763f1292f61f6001586caa71735d32/QRCodeReader/QRCodeReader.swift#L24">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -118,9 +120,9 @@ or the application is otherwise not correctly initialized.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:12QRCodeReaderAAC5ErrorO21permissionsNotGrantedyA2DmF"></a>
-                    <a name="//apple_ref/swift/Element/permissionsNotGranted" class="dashAnchor"></a>
-                    <a class="token" href="#/s:12QRCodeReaderAAC5ErrorO21permissionsNotGrantedyA2DmF">permissionsNotGranted</a>
+                    <a name="/s:12QRCodeReaderAAC12ResultButton33_B9DC3D797F478C8B92B825BD13CC6026LLC6qrCode5frameAESS_So6CGRectVtcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(qrCode:frame:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12QRCodeReaderAAC12ResultButton33_B9DC3D797F478C8B92B825BD13CC6026LLC6qrCode5frameAESS_So6CGRectVtcfc">init(qrCode:frame:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -128,23 +130,51 @@ or the application is otherwise not correctly initialized.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>This error occurs if the user has denied access to the camera or if
-camera access on the device is restricted in general. There is no
-need to ask the user to enable the permissions, as this is taken
-care of in <code>startScanning</code>. The purpose is to gracefully handle
-cases where the user does not want to grant the permission.</p>
+                        <p>Initialize a result button.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">permissionsNotGranted</span></code></pre>
+                          <pre class="highlight swift"><code><span class="nf">init</span><span class="p">(</span><span class="nv">qrCode</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">frame</span><span class="p">:</span> <span class="kt">CGRect</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>qrCode</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The value of the QR code that is selected for the
+button.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>frame</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The frame of the button.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/blochberger/QRCodeReader/blob/7e7c796928763f1292f61f6001586caa71735d32/QRCodeReader/QRCodeReader.swift#L73">Show on GitHub</a>
+                        <a href="https://github.com/blochberger/QRCodeReader/blob/7e7c796928763f1292f61f6001586caa71735d32/QRCodeReader/QRCodeReader.swift#L34-L41">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -152,9 +182,9 @@ cases where the user does not want to grant the permission.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:12QRCodeReaderAAC5ErrorO15noCaptureDeviceyA2DmF"></a>
-                    <a name="//apple_ref/swift/Element/noCaptureDevice" class="dashAnchor"></a>
-                    <a class="token" href="#/s:12QRCodeReaderAAC5ErrorO15noCaptureDeviceyA2DmF">noCaptureDevice</a>
+                    <a name="/s:12QRCodeReaderAAC12ResultButton33_B9DC3D797F478C8B92B825BD13CC6026LLC5coderAESgSo7NSCoderC_tcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(coder:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12QRCodeReaderAAC12ResultButton33_B9DC3D797F478C8B92B825BD13CC6026LLC5coderAESgSo7NSCoderC_tcfc">init(coder:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -162,19 +192,38 @@ cases where the user does not want to grant the permission.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>This error occurs if there is no available camera device.</p>
+                        <p>This will fail.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">noCaptureDevice</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">required</span> <span class="nf">init</span><span class="p">?(</span><span class="n">coder</span> <span class="nv">aDecoder</span><span class="p">:</span> <span class="kt">NSCoder</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>coder</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A coder.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/blochberger/QRCodeReader/blob/7e7c796928763f1292f61f6001586caa71735d32/QRCodeReader/QRCodeReader.swift#L78">Show on GitHub</a>
+                        <a href="https://github.com/blochberger/QRCodeReader/blob/7e7c796928763f1292f61f6001586caa71735d32/QRCodeReader/QRCodeReader.swift#L49-L51">Show on GitHub</a>
                       </div>
                     </section>
                   </div>

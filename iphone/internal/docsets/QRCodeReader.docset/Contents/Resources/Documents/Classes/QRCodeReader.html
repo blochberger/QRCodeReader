@@ -70,13 +70,15 @@
             <h1>QRCodeReader</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">QRCodeReader</span><span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">AVCaptureMetadataOutputObjectsDelegate</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">QRCodeReader</span> <span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">AVCaptureMetadataOutputObjectsDelegate</span></code></pre>
 
                 </div>
               </div>
             <p>This class can be used to conveniently read QR codes from the integrated
-camera of the device. The first QR code detected is returned as a string and
-the user is given indication how to enable permissions is denied or
+camera of the device. By default the first QR code detected is returned as a
+string. If <code>manualSelection</code> is enabled, the user can choose one of the
+visible QR codes manually.
+The user is given indication how to enable permissions is denied or
 restricted.</p>
 
           </div>
@@ -89,9 +91,9 @@ restricted.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:OC12QRCodeReader12QRCodeReader5Error"></a>
+                    <a name="/s:12QRCodeReaderAAC5ErrorO"></a>
                     <a name="//apple_ref/swift/Enum/Error" class="dashAnchor"></a>
-                    <a class="token" href="#/s:OC12QRCodeReader12QRCodeReader5Error">Error</a>
+                    <a class="token" href="#/s:12QRCodeReaderAAC5ErrorO">Error</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -108,12 +110,12 @@ code.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">Error</span><span class="p">:</span> <span class="kt">Swift</span><span class="o">.</span><span class="kt">Error</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">Error</span> <span class="p">:</span> <span class="kt">Swift</span><span class="o">.</span><span class="kt">Error</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/blochberger/QRCodeReader/blob/c636fe3bc9f252d217096340afa4ddcd98201f80/QRCodeReader/QRCodeReader.swift#L16-L36">Show on GitHub</a>
+                        <a href="https://github.com/blochberger/QRCodeReader/blob/7e7c796928763f1292f61f6001586caa71735d32/QRCodeReader/QRCodeReader.swift#L59-L79">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -121,9 +123,9 @@ code.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:C12QRCodeReader12QRCodeReader12FinishedScan"></a>
+                    <a name="/s:12QRCodeReaderAAC12FinishedScana"></a>
                     <a name="//apple_ref/swift/Alias/FinishedScan" class="dashAnchor"></a>
-                    <a class="token" href="#/s:C12QRCodeReader12QRCodeReader12FinishedScan">FinishedScan</a>
+                    <a class="token" href="#/s:12QRCodeReaderAAC12FinishedScana">FinishedScan</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -139,12 +141,12 @@ did finish.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">FinishedScan</span> <span class="o">=</span> <span class="p">(</span><span class="kt">String</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">FinishedScan</span> <span class="o">=</span> <span class="p">(</span><span class="kt">String</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/blochberger/QRCodeReader/blob/c636fe3bc9f252d217096340afa4ddcd98201f80/QRCodeReader/QRCodeReader.swift#L42">Show on GitHub</a>
+                        <a href="https://github.com/blochberger/QRCodeReader/blob/7e7c796928763f1292f61f6001586caa71735d32/QRCodeReader/QRCodeReader.swift#L85">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -152,9 +154,9 @@ did finish.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC12QRCodeReader12QRCodeReader21cancelButtonTextColorGSqCSo7UIColor_"></a>
+                    <a name="/s:12QRCodeReaderAAC21cancelButtonTextColorSo7UIColorCSgvp"></a>
                     <a name="//apple_ref/swift/Property/cancelButtonTextColor" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC12QRCodeReader12QRCodeReader21cancelButtonTextColorGSqCSo7UIColor_">cancelButtonTextColor</a>
+                    <a class="token" href="#/s:12QRCodeReaderAAC21cancelButtonTextColorSo7UIColorCSgvp">cancelButtonTextColor</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -174,12 +176,12 @@ did finish.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">cancelButtonTextColor</span> <span class="o">=</span> <span class="kt">UIView</span><span class="p">()</span><span class="o">.</span><span class="n">tintColor</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">cancelButtonTextColor</span><span class="p">:</span> <span class="kt">UIColor</span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/blochberger/QRCodeReader/blob/c636fe3bc9f252d217096340afa4ddcd98201f80/QRCodeReader/QRCodeReader.swift#L50">Show on GitHub</a>
+                        <a href="https://github.com/blochberger/QRCodeReader/blob/7e7c796928763f1292f61f6001586caa71735d32/QRCodeReader/QRCodeReader.swift#L93">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -187,9 +189,9 @@ did finish.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC12QRCodeReader12QRCodeReader27cancelButtonBackgroundColorCSo7UIColor"></a>
+                    <a name="/s:12QRCodeReaderAAC27cancelButtonBackgroundColorSo7UIColorCvp"></a>
                     <a name="//apple_ref/swift/Property/cancelButtonBackgroundColor" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC12QRCodeReader12QRCodeReader27cancelButtonBackgroundColorCSo7UIColor">cancelButtonBackgroundColor</a>
+                    <a class="token" href="#/s:12QRCodeReaderAAC27cancelButtonBackgroundColorSo7UIColorCvp">cancelButtonBackgroundColor</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -209,12 +211,12 @@ did finish.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">cancelButtonBackgroundColor</span> <span class="o">=</span> <span class="kt">UIColor</span><span class="o">.</span><span class="n">white</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">cancelButtonBackgroundColor</span><span class="p">:</span> <span class="kt">UIColor</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/blochberger/QRCodeReader/blob/c636fe3bc9f252d217096340afa4ddcd98201f80/QRCodeReader/QRCodeReader.swift#L58">Show on GitHub</a>
+                        <a href="https://github.com/blochberger/QRCodeReader/blob/7e7c796928763f1292f61f6001586caa71735d32/QRCodeReader/QRCodeReader.swift#L101">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -222,9 +224,9 @@ did finish.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC12QRCodeReader12QRCodeReader18cancelButtonHeightV12CoreGraphics7CGFloat"></a>
+                    <a name="/s:12QRCodeReaderAAC18cancelButtonHeight12CoreGraphics7CGFloatVvp"></a>
                     <a name="//apple_ref/swift/Property/cancelButtonHeight" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC12QRCodeReader12QRCodeReader18cancelButtonHeightV12CoreGraphics7CGFloat">cancelButtonHeight</a>
+                    <a class="token" href="#/s:12QRCodeReaderAAC18cancelButtonHeight12CoreGraphics7CGFloatVvp">cancelButtonHeight</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -244,12 +246,12 @@ did finish.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">cancelButtonHeight</span> <span class="o">=</span> <span class="kt">CGFloat</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">cancelButtonHeight</span><span class="p">:</span> <span class="kt">CGFloat</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/blochberger/QRCodeReader/blob/c636fe3bc9f252d217096340afa4ddcd98201f80/QRCodeReader/QRCodeReader.swift#L66">Show on GitHub</a>
+                        <a href="https://github.com/blochberger/QRCodeReader/blob/7e7c796928763f1292f61f6001586caa71735d32/QRCodeReader/QRCodeReader.swift#L109">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -257,9 +259,9 @@ did finish.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC12QRCodeReader12QRCodeReader18cancelButtonMarginV12CoreGraphics7CGFloat"></a>
+                    <a name="/s:12QRCodeReaderAAC18cancelButtonMargin12CoreGraphics7CGFloatVvp"></a>
                     <a name="//apple_ref/swift/Property/cancelButtonMargin" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC12QRCodeReader12QRCodeReader18cancelButtonMarginV12CoreGraphics7CGFloat">cancelButtonMargin</a>
+                    <a class="token" href="#/s:12QRCodeReaderAAC18cancelButtonMargin12CoreGraphics7CGFloatVvp">cancelButtonMargin</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -279,12 +281,12 @@ did finish.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">cancelButtonMargin</span> <span class="o">=</span> <span class="kt">CGFloat</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">cancelButtonMargin</span><span class="p">:</span> <span class="kt">CGFloat</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/blochberger/QRCodeReader/blob/c636fe3bc9f252d217096340afa4ddcd98201f80/QRCodeReader/QRCodeReader.swift#L74">Show on GitHub</a>
+                        <a href="https://github.com/blochberger/QRCodeReader/blob/7e7c796928763f1292f61f6001586caa71735d32/QRCodeReader/QRCodeReader.swift#L117">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -292,9 +294,9 @@ did finish.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC12QRCodeReader12QRCodeReader17feedbackOnSuccessSb"></a>
+                    <a name="/s:12QRCodeReaderAAC17feedbackOnSuccessSbvp"></a>
                     <a name="//apple_ref/swift/Property/feedbackOnSuccess" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC12QRCodeReader12QRCodeReader17feedbackOnSuccessSb">feedbackOnSuccess</a>
+                    <a class="token" href="#/s:12QRCodeReaderAAC17feedbackOnSuccessSbvp">feedbackOnSuccess</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -310,12 +312,12 @@ is not supported) upon successful detection of a QR code.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">feedbackOnSuccess</span> <span class="o">=</span> <span class="kc">true</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">feedbackOnSuccess</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/blochberger/QRCodeReader/blob/c636fe3bc9f252d217096340afa4ddcd98201f80/QRCodeReader/QRCodeReader.swift#L80">Show on GitHub</a>
+                        <a href="https://github.com/blochberger/QRCodeReader/blob/7e7c796928763f1292f61f6001586caa71735d32/QRCodeReader/QRCodeReader.swift#L123">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -323,9 +325,41 @@ is not supported) upon successful detection of a QR code.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC12QRCodeReader12QRCodeReaderd"></a>
+                    <a name="/s:12QRCodeReaderAAC15manualSelectionSbvp"></a>
+                    <a name="//apple_ref/swift/Property/manualSelection" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12QRCodeReaderAAC15manualSelectionSbvp">manualSelection</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This enables the possibility to select one of the visible QR codes
+manually. If this is disabled, the scan will automatically finish and
+select the first QR code detected.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">manualSelection</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/blochberger/QRCodeReader/blob/7e7c796928763f1292f61f6001586caa71735d32/QRCodeReader/QRCodeReader.swift#L130">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@QRCodeReader@objc(cs)QRCodeReader(im)dealloc"></a>
                     <a name="//apple_ref/swift/Method/deinit" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC12QRCodeReader12QRCodeReaderd">deinit</a>
+                    <a class="token" href="#/c:@M@QRCodeReader@objc(cs)QRCodeReader(im)dealloc">deinit</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -340,12 +374,12 @@ is not supported) upon successful detection of a QR code.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">deinit</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">deinit</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/blochberger/QRCodeReader/blob/c636fe3bc9f252d217096340afa4ddcd98201f80/QRCodeReader/QRCodeReader.swift#L106-L108">Show on GitHub</a>
+                        <a href="https://github.com/blochberger/QRCodeReader/blob/7e7c796928763f1292f61f6001586caa71735d32/QRCodeReader/QRCodeReader.swift#L161-L163">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -353,9 +387,9 @@ is not supported) upon successful detection of a QR code.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC12QRCodeReader12QRCodeReader12stopScanningFT_T_"></a>
+                    <a name="/c:@M@QRCodeReader@objc(cs)QRCodeReader(im)stopScanning"></a>
                     <a name="//apple_ref/swift/Method/stopScanning()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC12QRCodeReader12QRCodeReader12stopScanningFT_T_">stopScanning()</a>
+                    <a class="token" href="#/c:@M@QRCodeReader@objc(cs)QRCodeReader(im)stopScanning">stopScanning()</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -370,12 +404,13 @@ is not supported) upon successful detection of a QR code.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">stopScanning</span><span class="p">()</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">stopScanning</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/blochberger/QRCodeReader/blob/c636fe3bc9f252d217096340afa4ddcd98201f80/QRCodeReader/QRCodeReader.swift#L113-L120">Show on GitHub</a>
+                        <a href="https://github.com/blochberger/QRCodeReader/blob/7e7c796928763f1292f61f6001586caa71735d32/QRCodeReader/QRCodeReader.swift#L178-L186">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -383,9 +418,9 @@ is not supported) upon successful detection of a QR code.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC12QRCodeReader12QRCodeReader13startScanningFzFGSqSS_T_T_"></a>
+                    <a name="/s:12QRCodeReaderAAC13startScanningyyySSSgcKF"></a>
                     <a name="//apple_ref/swift/Method/startScanning(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC12QRCodeReader12QRCodeReader13startScanningFzFGSqSS_T_T_">startScanning(_:)</a>
+                    <a class="token" href="#/s:12QRCodeReaderAAC13startScanningyyySSSgcKF">startScanning(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -417,7 +452,7 @@ else the application will crash when trying to access the camera.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">startScanning</span><span class="p">(</span><span class="n">_</span> <span class="nv">finishedScan</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Classes/QRCodeReader.html#/s:C12QRCodeReader12QRCodeReader12FinishedScan">FinishedScan</a></span><span class="p">)</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">startScanning</span><span class="p">(</span><span class="n">_</span> <span class="nv">finishedScan</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Classes/QRCodeReader.html#/s:12QRCodeReaderAAC12FinishedScana">FinishedScan</a></span><span class="p">)</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -443,7 +478,7 @@ successfully, <code>nil</code> else, i.e., if the user canceled the scan.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/blochberger/QRCodeReader/blob/c636fe3bc9f252d217096340afa4ddcd98201f80/QRCodeReader/QRCodeReader.swift#L143-L225">Show on GitHub</a>
+                        <a href="https://github.com/blochberger/QRCodeReader/blob/7e7c796928763f1292f61f6001586caa71735d32/QRCodeReader/QRCodeReader.swift#L241-L323">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -462,9 +497,9 @@ successfully, <code>nil</code> else, i.e., if the user canceled the scan.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC12QRCodeReader12QRCodeReader13captureOutputFTGSQCSo15AVCaptureOutput_24didOutputMetadataObjectsGSQGSaP___4fromGSQCSo19AVCaptureConnection__T_"></a>
-                    <a name="//apple_ref/swift/Method/captureOutput(_:didOutputMetadataObjects:from:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC12QRCodeReader12QRCodeReader13captureOutputFTGSQCSo15AVCaptureOutput_24didOutputMetadataObjectsGSQGSaP___4fromGSQCSo19AVCaptureConnection__T_">captureOutput(_:didOutputMetadataObjects:from:)</a>
+                    <a name="/c:@M@QRCodeReader@objc(cs)QRCodeReader(im)captureOutput:didOutputMetadataObjects:fromConnection:"></a>
+                    <a name="//apple_ref/swift/Method/metadataOutput(_:didOutput:from:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@QRCodeReader@objc(cs)QRCodeReader(im)captureOutput:didOutputMetadataObjects:fromConnection:">metadataOutput(_:didOutput:from:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -483,12 +518,12 @@ successfully, <code>nil</code> else, i.e., if the user canceled the scan.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">captureOutput</span><span class="p">(</span><span class="n">_</span> <span class="nv">captureOutput</span><span class="p">:</span> <span class="kt">AVCaptureOutput</span><span class="o">!</span><span class="p">,</span> <span class="n">didOutputMetadataObjects</span> <span class="nv">metadataObjects</span><span class="p">:</span> <span class="p">[</span><span class="kt">Any</span><span class="p">]</span><span class="o">!</span><span class="p">,</span> <span class="n">from</span> <span class="nv">connection</span><span class="p">:</span> <span class="kt">AVCaptureConnection</span><span class="o">!</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">metadataOutput</span><span class="p">(</span><span class="n">_</span> <span class="nv">output</span><span class="p">:</span> <span class="kt">AVCaptureMetadataOutput</span><span class="p">,</span> <span class="n">didOutput</span> <span class="nv">metadataObjects</span><span class="p">:</span> <span class="p">[</span><span class="kt">AVMetadataObject</span><span class="p">],</span> <span class="n">from</span> <span class="nv">connection</span><span class="p">:</span> <span class="kt">AVCaptureConnection</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/blochberger/QRCodeReader/blob/c636fe3bc9f252d217096340afa4ddcd98201f80/QRCodeReader/QRCodeReader.swift#L232-L257">Show on GitHub</a>
+                        <a href="https://github.com/blochberger/QRCodeReader/blob/7e7c796928763f1292f61f6001586caa71735d32/QRCodeReader/QRCodeReader.swift#L330-L359">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -501,8 +536,8 @@ successfully, <code>nil</code> else, i.e., if the user canceled the scan.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2017 <a class="link" href="https://github.com/blochberger" target="_blank" rel="external">Maximilian Blochberger</a>. All rights reserved. (Last updated: 2017-08-10)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.8.3</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2019 <a class="link" href="https://github.com/blochberger" target="_blank" rel="external">Maximilian Blochberger</a>. All rights reserved. (Last updated: 2019-05-02)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>
